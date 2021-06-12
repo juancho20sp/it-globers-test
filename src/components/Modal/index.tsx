@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
+
+import { IoMdClose } from 'react-icons/io'
 
 import './styles.scss'
 
@@ -13,12 +15,14 @@ export const Modal: React.FC<{ open: boolean, onClose: any, isFadingOut: any }> 
             <div className="overlay"></div>
             <div className={`modal ${isFadingOut ? 'fadeout' : ''}`}
                 onTransitionEnd={onClose}>
-                <button onClick={onClose}>Cerrar</button>
-                {children}
+                <span className="icon" onClick={onClose}>
+                    <IoMdClose />
+                </span>
 
-                {/* <button onClick={() => setIsFading(!isFading)}>Toggle fadeout</button> */}
+                {children}
             </div>
         </>
         , document.getElementById('portal') as HTMLElement
     )
 }
+

@@ -1,0 +1,22 @@
+@import '../../index.scss';
+
+.mainTitle {
+    margin: 15px;
+
+    h2 {
+        text-align: center;
+
+        .selectedOption {
+            background-color: $primary;
+            border-radius: 10%;
+            padding: 3px;
+        
+            font-size: 1.5rem;
+        
+            font-style: italic;
+        
+            text-decoration: underline;    
+        }
+    }
+}
+

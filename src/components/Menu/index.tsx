@@ -5,9 +5,11 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 
 // Types
 import { MenuItem } from '../../utils/interfaces/menuItem';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { SET_MENU_OPTION } from '../../redux/types';
+import { getMenuOption } from '../../redux/actions/menu.actions';
+import { GlobalState } from '../../utils/interfaces/globalState';
 
 // type MenuItem = {
 //     id: number;
@@ -69,15 +71,13 @@ export const Menu: React.FC = () => {
         setShowMenu(newShowMenu);
     }
 
-    const handleItemClick = (item: MenuItem) => {
-        // console.log('Item clicked');
-        // console.log(item);
 
+
+    const handleItemClick = (item: MenuItem) => {
         dispatch({
             type: SET_MENU_OPTION,
             payload: item
         })
-
     }
 
     useEffect(() => {
@@ -90,6 +90,14 @@ export const Menu: React.FC = () => {
         })
     }, [dispatch])
 
+    const selectedOption = useSelector((state: GlobalState) => state.menuItem);
+
+
+    useEffect(() => {
+        dispatch(getMenuOption());
+
+    }, [dispatch])
+
 
 
     return (
@@ -97,7 +105,7 @@ export const Menu: React.FC = () => {
             <ul>
                 {menuItems.map((item: MenuItem) => (
 
-                    <li className={showMenu ? '' : 'hide'} key={item.id} onClick={() => handleItemClick(item)}>{item.name} </li>))}
+                    <li className={`${showMenu ? '' : 'hide'} ${selectedOption.id === item.id ? 'active' : ''}`} key={item.id} onClick={() => handleItemClick(item)}>{item.name} </li>))}
 
             </ul>
 

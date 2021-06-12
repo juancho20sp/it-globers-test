@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
+import './styles.scss';
+
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,22 +14,17 @@ export const MainTitle: React.FC = () => {
 
     const selectedOption = useSelector((state: GlobalState) => state.menuItem);
 
-    const [selected, setSelected] = useState(selectedOption);
-
 
     useEffect(() => {
         dispatch(getMenuOption());
 
     }, [dispatch])
 
-    useEffect(() => {
-        console.log(selectedOption)
-    }, [selectedOption])
-
 
     return (
-        <div>
-            {<h2>Este es mi título {selectedOption?.name}</h2>}
+        <div className="mainTitle">
+            {<h2>Hola, bienvenido, sabemos que quieres viajar en un <span className="selectedOption">{selectedOption?.name}</span>, por favor diligencia el siguiente formulario:
+            </h2>}
         </div>
     )
 }
