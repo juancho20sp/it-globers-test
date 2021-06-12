@@ -4,4 +4,50 @@
     color: $warning;
 
     font-size: 0.8rem;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.form-row {
+    background-color: lawngreen;
+    display: flex;
+    flex-direction: column;
+
+    width: 90%;
+
+    margin: 0 auto;
+
+    label {
+        margin-bottom: 6px;
+
+        padding-top: 15px;
+    }
+
+    input {
+        border: 2px solid $warning;
+        border-radius: 30px;
+
+        text-indent: 10px;
+
+        font-family: 'Roboto', sans-serif;
+
+        height: 2.8rem;
+
+        &:focus {
+            outline: none;
+        }
+
+        &::selection {
+            background-color: $secondary;
+        }
+    }
+}
+
+@media screen and (min-width: 920px){
+    .errorMessage {
+        color: $warning;
+    
+        font-size: 1rem;
+    }
 }

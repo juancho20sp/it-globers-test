@@ -1,6 +1,23 @@
+@import '../../index.scss';
+
 .form-container {
     form {
         display: flex;
         flex-direction: column;
+    }
+
+    button {
+        background-color: $secondary;
+        border: 2px solid black;
+        border-radius: 50px;
+
+        height: 3rem;
+        width: 90%;
+
+        margin: 20px auto;
+
+        color: $bg;
+
+        font-size: 1rem;
     }
 }

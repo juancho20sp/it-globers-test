@@ -30,7 +30,7 @@ const ErrorMessage: React.FC<{ message: string }> = ({ message }) => {
 
 export const Input = ({ label, type, register, errors, reference, validations }: InputProps) => {
 
-    return (<>
+    return (<div className="form-row">
         <label>{label}</label>
         <input type={type} {...register(reference, validations)} />
 
@@ -45,5 +45,5 @@ export const Input = ({ label, type, register, errors, reference, validations }:
         {errors[reference]?.type === MIN_LENGTH_ERROR ? <ErrorMessage message={MIN_LENGTH_ERROR_MSG} /> : ''}
 
         {errors[reference]?.type === MAX_LENGTH_ERROR ? <ErrorMessage message={MAX_LENGTH_ERROR_MSG} /> : ''}
-    </>)
+    </div>)
 }

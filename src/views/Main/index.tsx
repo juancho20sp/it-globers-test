@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './styles.scss';
 
 import { MainTitle } from '../../components/MainTitle';
 import { Form } from '../../components/Form';
@@ -17,7 +18,7 @@ export const Main = () => {
     }
 
     return (
-        <div>
+        <div className="main">
             <MainTitle />
             <Form openModal={() => toggleModal()} />
             <Modal open={isModalOpen} onClose={() => { setIsModalOpen(false); setIsFadingOut(false) }} isFadingOut={isFadingOut}>

@@ -1,0 +1,12 @@
+@import '../../index.scss';
+
+.footer {
+    background-color: $secondary;
+
+    text-align: center;
+
+    p {
+        padding: 5px;
+        margin: 5px 0;
+    }
+}

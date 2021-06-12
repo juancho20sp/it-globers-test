@@ -1,12 +1,12 @@
 import React from 'react'
+import './styles.scss';
 
 import { Menu } from '../../components/Menu';
-import { Form } from '../../components/Form';
 import { Footer } from '../../components/Footer';
 
 export const Layout: React.FC = ({ children }) => {
     return (
-        <div>
+        <div className="container">
             <Menu />
             {children}
             <Footer />
