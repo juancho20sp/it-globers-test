@@ -5,19 +5,28 @@ import { Form } from '../../components/Form';
 import { Modal } from '../../components/Modal';
 
 export const Main = () => {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isFadingOut, setIsFadingOut] = useState(false);
+
+    const toggleModal = () => {
+        setIsModalOpen(true);
+
+        setTimeout(() => {
+            setIsFadingOut(true);
+        }, 4500);
+    }
 
     return (
         <div>
             <MainTitle />
-            <Form openModal={() => setIsOpen(true)} />
-            <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+            <Form openModal={() => toggleModal()} />
+            <Modal open={isModalOpen} onClose={() => { setIsModalOpen(false); setIsFadingOut(false) }} isFadingOut={isFadingOut}>
                 <p>Tu información fue enviada con éxito, estaremos en contacto
                     contigo
                 </p>
             </Modal>
 
-            <button onClick={() => setIsOpen(!isOpen)}>toggle modal</button>
+            <button onClick={() => setIsModalOpen(!isModalOpen)}>toggle modal</button>
         </div>
     )
 }
