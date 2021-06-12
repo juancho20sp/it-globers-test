@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import './styles.scss';
 
-
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
 import { getMenuOption } from '../../redux/actions/menu.actions';
@@ -12,12 +11,12 @@ import { GlobalState } from '../../utils/interfaces/globalState';
 export const MainTitle: React.FC = () => {
     const dispatch = useDispatch();
 
+    // Bring the selectedOptions from the global state
     const selectedOption = useSelector((state: GlobalState) => state.menuItem);
 
 
     useEffect(() => {
         dispatch(getMenuOption());
-
     }, [dispatch])
 
 

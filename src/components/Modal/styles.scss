@@ -2,6 +2,7 @@
 
 .modal {
     background-color: #FFF;
+    border-radius: 25px;
 
     height: 25vh;
     width: 80vw;
@@ -47,9 +48,25 @@
 }
 
 @media screen and (min-width: 920px){
-    .errorMessage {
-        color: $warning;
+    .modal {    
+        height: 25vh;
+        width: 40vw;
     
-        font-size: 1rem;
+        
+        display: flex;
+        span {
+            background-color: red;
+            
+            align-self: flex-start;
+
+            // margin-top: 10px;
+            // margin-right: 10px;
+        }
+    
+        p {
+            margin: auto;
+        }
+    
     }
+    
 }

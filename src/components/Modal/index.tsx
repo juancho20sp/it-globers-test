@@ -7,6 +7,7 @@ import './styles.scss'
 
 export const Modal: React.FC<{ open: boolean, onClose: any, isFadingOut: any }> = ({ open, children, onClose, isFadingOut }) => {
 
+    // If the modal is not open, do not show it
     if (!open) return null;
 
 

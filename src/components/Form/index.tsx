@@ -6,8 +6,10 @@ import { Input } from '../Input';
 
 
 export const Form: React.FC<{ openModal: any }> = ({ openModal }) => {
+    // Bring all the elements that we will be using from 'react-hook-form'
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
+    // Print and reset form when it is correctly filled 
     const onSubmit = (data: any) => {
         console.log(data)
 
@@ -18,8 +20,11 @@ export const Form: React.FC<{ openModal: any }> = ({ openModal }) => {
 
     return (
         <div className="form-container">
-
             <form onSubmit={handleSubmit(onSubmit)}>
+                {/* Each <Input /> takes a prop called 'validation' which is an object
+                and its keys are the different validations that will be evaluated on form submit
+                PD: 'pattern' its used for RegEx validations */}
+
                 <Input label="Nombre:"
                     type="text" reference="name" validations={{ required: true, pattern: /^[a-zA-ZñÑ ]*$/, minLength: 3, maxLength: 50 }} register={register} errors={errors} />
 

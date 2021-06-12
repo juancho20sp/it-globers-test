@@ -1,9 +1,10 @@
 
+// Types
 import { MenuItem } from '../../utils/interfaces/menuItem';
 
-// Declaramos los elementos del menú
-// Se cambia la estructura de {[id, name]} a [{id, name}]
-// Para facilitar el tipado y manejar un arreglo de objetos respetando la estructura de un archivo JSON
+// Declare the menu items
+// The structure will change from {[id, name]} to [{id, name}]
+// In order to make a little easier typing the variables and following the JSON structure
 export const menuItems: MenuItem[] = [
     {
         id: 1,
@@ -21,5 +22,4 @@ export const menuItems: MenuItem[] = [
         id: 4,
         name: 'AeroITGlobers'
     }
-
 ]
