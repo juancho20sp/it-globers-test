@@ -3,10 +3,16 @@ import './styles.scss';
 
 import { GiHamburgerMenu } from 'react-icons/gi';
 
-type MenuItem = {
-    id: number;
-    name: string;
-}
+// Types
+import { MenuItem } from '../../utils/interfaces/menuItem';
+import { useDispatch } from 'react-redux';
+
+import { SET_MENU_OPTION } from '../../redux/types';
+
+// type MenuItem = {
+//     id: number;
+//     name: string;
+// }
 
 export const Menu: React.FC = () => {
     // Declaramos los elementos del menú
@@ -37,6 +43,8 @@ export const Menu: React.FC = () => {
 
     const [width, setWidth] = useState(window.innerWidth);
 
+    const dispatch = useDispatch();
+
     useEffect(() => {
         const handleResize = () => {
             setWidth(window.innerWidth);
@@ -52,12 +60,35 @@ export const Menu: React.FC = () => {
 
     }, [width])
 
-    const handleClick = (): void => {
+
+
+    const handleBurgerClick = (): void => {
         console.log('burger clicked')
 
         const newShowMenu = !showMenu;
         setShowMenu(newShowMenu);
     }
+
+    const handleItemClick = (item: MenuItem) => {
+        // console.log('Item clicked');
+        // console.log(item);
+
+        dispatch({
+            type: SET_MENU_OPTION,
+            payload: item
+        })
+
+    }
+
+    useEffect(() => {
+        dispatch({
+            type: SET_MENU_OPTION,
+            payload: {
+                id: 1,
+                name: 'Test 1'
+            }
+        })
+    }, [dispatch])
 
 
 
@@ -65,10 +96,12 @@ export const Menu: React.FC = () => {
         <nav className="navbar">
             <ul>
                 {menuItems.map((item: MenuItem) => (
-                    <li className={showMenu ? '' : 'hide'} key={item.id}>{item.name}</li>))}
+
+                    <li className={showMenu ? '' : 'hide'} key={item.id} onClick={() => handleItemClick(item)}>{item.name} </li>))}
+
             </ul>
 
-            <span className="icon" onClick={() => handleClick()}>
+            <span className="icon" onClick={() => handleBurgerClick()}>
                 <GiHamburgerMenu />
             </span>
         </nav >

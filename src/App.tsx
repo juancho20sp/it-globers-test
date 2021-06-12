@@ -1,16 +1,15 @@
 import React from 'react';
 import './App.scss';
 
-import { Menu } from './components/Menu';
-import { Form } from './components/Form';
-import { Footer } from './components/Footer';
+import { Layout } from './views/Layout';
+import { Main } from './views/Main';
 
 function App() {
   return (
     <>
-      <Menu />
-      <Form />
-      <Footer />
+      <Layout>
+        <Main />
+      </Layout>
     </>
   );
 }

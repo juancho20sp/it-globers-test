@@ -1,0 +1,2 @@
+export const GET_MENU_OPTION = 'GET_MENU_OPTION';
+export const SET_MENU_OPTION = 'SET_MENU_OPTION';
