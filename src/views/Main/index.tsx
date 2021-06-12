@@ -26,8 +26,6 @@ export const Main = () => {
                     contigo
                 </p>
             </Modal>
-
-            <button onClick={() => setIsModalOpen(!isModalOpen)}>toggle modal</button>
         </div>
     )
 }

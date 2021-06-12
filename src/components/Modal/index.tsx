@@ -16,7 +16,7 @@ export const Modal: React.FC<{ open: boolean, onClose: any, isFadingOut: any }> 
             <div className="overlay"></div>
             <div className={`modal ${isFadingOut ? 'fadeout' : ''}`}
                 onTransitionEnd={onClose}>
-                <span className="icon" onClick={onClose}>
+                <span className="close-icon" onClick={onClose}>
                     <IoMdClose />
                 </span>
 
