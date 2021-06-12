@@ -1,20 +1,38 @@
+@import '../../index.scss';
+
 .modal {
-    background-color: red;
+    background-color: #FFF;
 
-    padding: 50px;
+    height: 25vh;
+    width: 80vw;
 
-    z-index: 1000;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
     
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    z-index: 2;
+
+    span {
+        align-self: flex-end;
+
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+
+    p {
+        margin: auto;
+    }
 
 }
 .overlay {
     background-color: rgba(0, 0, 0, 0.7);
 
-    z-index: 1000;
+    z-index: 2;
 
     position: fixed;
     top: 0;
@@ -26,4 +44,12 @@
 .fadeout {
     opacity: 0;
     transition: all 250ms linear 1s;
-  }
+}
+
+@media screen and (min-width: 920px){
+    .errorMessage {
+        color: $warning;
+    
+        font-size: 1rem;
+    }
+}
