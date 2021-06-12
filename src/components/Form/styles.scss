@@ -2,13 +2,19 @@
 
 .form-container {
     form {
+        border: 2px solid black;
+        border-radius: 20px;
+        // background-color: lawngreen;
+
+        margin: 10px;
+
         display: flex;
         flex-direction: column;
     }
 
     button {
         background-color: $secondary;
-        border: 2px solid black;
+        border: 2px solid $secondary;
         border-radius: 50px;
 
         height: 3rem;
@@ -19,5 +25,64 @@
         color: $bg;
 
         font-size: 1rem;
+
+        &:hover {
+            background-color: $warning;
+            border: 2px solid $warning;
+
+            cursor: pointer;
+        }
     }
 }
+
+
+@media screen and (min-width: 920px){
+    .form-container {
+        background-color: red;
+        // width: 90%;
+        // height: 90%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        margin: 0 auto;
+
+
+        form {
+            width: 35vw;
+
+            border: 2px solid black;
+            border-radius: 20px;
+            // background-color: lawngreen;
+    
+            margin: 10px;
+    
+            display: flex;
+            flex-direction: column;
+        }
+    
+        button {
+            background-color: $secondary;
+            border: 2px solid $secondary;
+            border-radius: 50px;
+    
+            height: 3rem;
+            width: 90%;
+    
+            margin: 20px auto;
+    
+            color: $bg;
+    
+            font-size: 1rem;
+    
+            &:hover {
+                background-color: $warning;
+                border: 2px solid $warning;
+    
+                cursor: pointer;
+            }
+        }
+    }
+}
+

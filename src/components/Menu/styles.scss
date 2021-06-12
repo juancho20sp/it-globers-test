@@ -6,8 +6,6 @@ li {
 
 .navbar {
     background-color: $secondary;
-    // overflow: hidden;
-
     width: 100%;
 
 
@@ -18,9 +16,11 @@ li {
 
         li {
             width: 100%;
-            flex: 1;
-        
-            text-align: center;
+            height: 2rem;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
         
             &:hover {
                 background-color: $warning;
@@ -30,10 +30,6 @@ li {
         }
     }
 }
-
-
-
-
 
 
 .icon {
@@ -56,10 +52,9 @@ li {
 
 @media screen and (max-width: 920px){
     .navbar {
-        // background-color: red;
 
         display: flex;
-        // flex-direction: column-reverse;
+        flex-direction: column-reverse;
     
         ul {
             width: 100%;
@@ -68,6 +63,20 @@ li {
             flex-direction: column;
             justify-content: center;
             align-items: center;
+
+            .hide {
+                display: none;
+            }
+
+            li {
+                border-bottom: 1px solid black;
+
+                &:first-child {
+                    border-top: 1px solid black;
+                }
+
+                
+            }
         }
 
         
@@ -80,7 +89,7 @@ li {
 
         display: block;          
         justify-self: flex-end;
-        align-self: flex-start;
+        align-self: flex-end;
     }
 
     .active {
