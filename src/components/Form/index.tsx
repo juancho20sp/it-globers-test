@@ -38,25 +38,21 @@ const Input = ({ label, type, register, errors, reference, validations }: InputP
 }
 
 
-export const Form: React.FC = () => {
+export const Form: React.FC<{ openModal: any }> = ({ openModal }) => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const onSubmit = (data: any) => console.log(data);
+    const onSubmit = (data: any) => {
+        console.log(data)
 
-
-    /* Nombre completo
-           -> Email
-           -> Celular
-           -> Rango de edad 18 - 100 inclusivos */
+        openModal();
+    };
 
     return (
         <div className="form-container">
 
-
-
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Input label="Nombre:"
-                    type="text" reference="name" validations={{ required: true, pattern: /^[a-zA-ZñÑ]*$/ }} register={register} errors={errors} />
+                    type="text" reference="name" validations={{ required: true, pattern: /^[a-zA-ZñÑ ]*$/ }} register={register} errors={errors} />
 
                 <Input label="Email:" type="text" reference="email" register={register} errors={errors}
                     validations={{ required: true, pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ }} />
